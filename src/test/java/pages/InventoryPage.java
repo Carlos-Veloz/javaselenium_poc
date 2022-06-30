@@ -10,28 +10,28 @@ import java.util.NoSuchElementException;
 
 public class InventoryPage extends Base {
     @FindBy(id = "inventory_container")
-    WebElement invContainer;
+    private WebElement invContainer;
 
     @FindBy(id = "add-to-cart-sauce-labs-backpack")
-    WebElement backpack;
+    private WebElement backpack;
 
     @FindBy(id = "add-to-cart-sauce-labs-bike-light")
-    WebElement bikeLight;
+    private WebElement bikeLight;
 
     @FindBy(id = "add-to-cart-sauce-labs-bolt-t-shirt")
-    WebElement tshirt;
+    private WebElement tshirt;
 
     @FindBy(css = ".product_sort_container")
-    WebElement filterDropDown;
+    private WebElement filterDropDown;
 
     @FindBy(css = "shopping_cart_link")
-    WebElement shoppingCart;
+    private WebElement shoppingCart;
 
     @FindBy(id = "react-burger-menu-btn")
-    WebElement burgerMenu;
+    private WebElement burgerMenu;
 
     @FindBy(id = "logout_sidebar_link")
-    WebElement logout;
+    private WebElement logout;
 
     public InventoryPage(WebDriver driver){
         super(driver);

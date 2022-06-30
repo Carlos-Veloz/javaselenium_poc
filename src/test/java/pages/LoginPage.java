@@ -8,16 +8,16 @@ import java.util.Objects;
 
 public class LoginPage extends Base {
     @FindBy(id = "user-name")
-    WebElement userNameInput;
+    private WebElement userNameInput;
 
     @FindBy(id = "password")
-    WebElement passwordInput;
+    private WebElement passwordInput;
 
     @FindBy(id = "login-button")
-    WebElement loginButton;
+    private WebElement loginButton;
 
     @FindBy(css = ".error-message-container")
-    WebElement errorMessage;
+    private WebElement errorMessage;
 
     public LoginPage(WebDriver driver){
         super(driver);
