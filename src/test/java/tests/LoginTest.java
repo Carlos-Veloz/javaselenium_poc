@@ -18,7 +18,7 @@ public class LoginTest extends Hooks {
         home = new InventoryPage(driver);
     }
 
-    @Test
+    @Test(groups = {"smoketest"})
     public void ValidLogin() {
         driver.get(PropertiesConfig.URL);
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
