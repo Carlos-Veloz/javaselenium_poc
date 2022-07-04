@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class Base {
     protected final WebDriver driver;
 
-    public Base(WebDriver driver){
+    public Base(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -19,7 +19,7 @@ public abstract class Base {
         try {
             WebDriverWait wait = new WebDriverWait(driver, 10);
             wait.until(ExpectedConditions.visibilityOf(element));
-        } catch(Exception ex){
+        } catch (Exception ex) {
             throw new TimeoutException("Timeout exceeded while waiting for element: " + element);
         }
     }

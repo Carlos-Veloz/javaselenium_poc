@@ -7,12 +7,12 @@ import org.openqa.selenium.WebElement;
 import java.util.Objects;
 
 public class LoginPage extends Base {
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     private WebElement userNameInput() {
-       return driver.findElement(By.id("user-name"));
+        return driver.findElement(By.id("user-name"));
     }
 
     private WebElement passwordInput() {
@@ -23,7 +23,7 @@ public class LoginPage extends Base {
         return driver.findElement(By.id("login-button"));
     }
 
-    private WebElement errorMessage(){
+    private WebElement errorMessage() {
         return driver.findElement(By.cssSelector(".error-message-container"));
     }
 
@@ -33,13 +33,13 @@ public class LoginPage extends Base {
 
     }
 
-    public void login(String username, String pwd){
+    public void login(String username, String pwd) {
         userNameInput().sendKeys(username);
         passwordInput().sendKeys((pwd));
         loginButton().click();
     }
 
-    public String getErrorMsgText(){
+    public String getErrorMsgText() {
         Base.waitForElementIsVisible(driver, errorMessage());
         String text = errorMessage().getText();
         if (Objects.nonNull(text)) {
@@ -48,8 +48,8 @@ public class LoginPage extends Base {
         return "";
     }
 
-    public boolean formIsDisplayed(){
-        try{
+    public boolean formIsDisplayed() {
+        try {
             Base.waitForElementIsVisible(driver, userNameInput());
             return true;
         } catch (Exception ex) {

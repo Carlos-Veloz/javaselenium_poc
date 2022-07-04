@@ -23,20 +23,20 @@ public class DataProviderReader {
         }
     }
 
-    public static DataProviderReader getInstance(){
-        if(Objects.isNull(INSTANCE)){
-            try{
+    public static DataProviderReader getInstance() {
+        if (Objects.isNull(INSTANCE)) {
+            try {
                 INSTANCE = new DataProviderReader();
-            }catch(FileNotFoundException | InvalidPropertiesFormatException exception){
+            } catch (FileNotFoundException | InvalidPropertiesFormatException exception) {
                 throw new RuntimeException("Could not initialize DataProviderReader object: "
-                + exception.getMessage(), exception);
+                        + exception.getMessage(), exception);
             }
         }
         return INSTANCE;
     }
 
-    public String getValue(String propertyName){
-        if(Objects.nonNull(properties)){
+    public String getValue(String propertyName) {
+        if (Objects.nonNull(properties)) {
             return properties.getProperty(propertyName);
         }
         return null;

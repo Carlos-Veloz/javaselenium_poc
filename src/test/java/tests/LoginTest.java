@@ -7,13 +7,13 @@ import pages.InventoryPage;
 import pages.LoginPage;
 import utilities.PropertiesConfig;
 
-public class LoginTest extends Hooks{
+public class LoginTest extends Hooks {
     private static LoginPage login;
     private static InventoryPage home;
     private static String errorMsg;
 
     @BeforeMethod
-    public void testInit(){
+    public void testInit() {
         login = new LoginPage(driver);
         home = new InventoryPage(driver);
     }
@@ -29,7 +29,7 @@ public class LoginTest extends Hooks{
     @Test
     public void IncorrectLogin() {
         driver.get(PropertiesConfig.URL);
-        login.login("","");
+        login.login("", "");
         errorMsg = login.getErrorMsgText();
         Assert.assertEquals(errorMsg, "Epic sadface: Username is required");
     }
