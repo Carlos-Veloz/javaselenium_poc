@@ -4,9 +4,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.InventoryPage;
 import pages.LoginPage;
-import utilities.PropertiesConfig;
+import utils.PropertiesConfig;
 
-public class InventoryTest extends Hooks {
+public class InventoryTest extends BaseTest {
     private static LoginPage login;
     private static InventoryPage home;
 

@@ -1,4 +1,4 @@
-package utilities;
+package utils.data;
 
 import java.io.*;
 import java.util.InvalidPropertiesFormatException;
