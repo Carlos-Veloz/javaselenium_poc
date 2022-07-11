@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Objects;
 
-public class LoginPage extends Base {
+    public class LoginPage extends Base {
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -27,12 +27,6 @@ public class LoginPage extends Base {
         return driver.findElement(By.cssSelector(".error-message-container"));
     }
 
-
-    @Override
-    protected void waitForPageLoad() {
-
-    }
-
     public void login(String username, String pwd) {
         userNameInput().sendKeys(username);
         passwordInput().sendKeys((pwd));
@@ -40,7 +34,7 @@ public class LoginPage extends Base {
     }
 
     public String getErrorMsgText() {
-        Base.waitForElementIsVisible(driver, errorMessage());
+        waitForElementVisibility(errorMessage());
         String text = errorMessage().getText();
         if (Objects.nonNull(text)) {
             return text.trim();
@@ -50,7 +44,7 @@ public class LoginPage extends Base {
 
     public boolean formIsDisplayed() {
         try {
-            Base.waitForElementIsVisible(driver, userNameInput());
+            waitForElementVisibility(userNameInput());
             return true;
         } catch (Exception ex) {
             throw new RuntimeException("Timeout exceeded while waiting for login page to load");

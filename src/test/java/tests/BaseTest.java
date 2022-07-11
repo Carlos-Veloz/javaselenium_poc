@@ -7,10 +7,10 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 public abstract class BaseTest {
-    protected static WebDriver driver;
+    protected WebDriver driver;
 
     @BeforeSuite
-    public static void setupClass() {
+    public void setupClass() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
     }

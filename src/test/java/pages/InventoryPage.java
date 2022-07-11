@@ -14,7 +14,11 @@ public class InventoryPage extends Base {
         return driver.findElement(By.id("inventory_container"));
     }
 
-    private WebElement backpack() {
+    private WebElement addBackpackToCartButton() {
+        return driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
+    }
+
+    private WebElement removeBackpackButton(){
         return driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
     }
 
@@ -34,44 +38,24 @@ public class InventoryPage extends Base {
         return driver.findElement(By.cssSelector("shopping_cart_link"));
     }
 
-    private WebElement burgerMenu() {
-        return driver.findElement(By.id("react-burger-menu-btn"));
-    }
-
-    private WebElement logout() {
-        return driver.findElement(By.id("logout_sidebar_link"));
-    }
-
     public InventoryPage(WebDriver driver) {
         super(driver);
     }
 
-    @Override
-    protected void waitForPageLoad() {
-
-    }
-
     public void waitUntilPageIsLoaded() {
-        try {
-            Base.waitForElementIsVisible(driver, inventoryContainer());
-        } catch (Exception ex) {
-            throw new RuntimeException("Timeout exceeded while waiting for inventory page to load");
-        }
+        waitForElementVisibility(inventoryContainer());
     }
 
-    public void waitUntilLogoutIsAvailable() {
-        try {
-            Base.waitForElementIsVisible(driver, logout());
-        } catch (Exception ex) {
-            throw new RuntimeException("Timeout exceeded ");
-        }
+    public boolean isInventoryPageVisible(){
+        return inventoryContainer().isDisplayed();
     }
 
-    public void logOut() {
-        this.waitUntilPageIsLoaded();
-        burgerMenu().click();
-        this.waitUntilLogoutIsAvailable();
-        logout().click();
+    public void addBackpackToCart(){
+        addBackpackToCartButton().click();
+    }
+
+    public boolean isRemoveBackpackButtonVisible(){
+       return removeBackpackButton().isDisplayed();
     }
 
     public void sortByValue(String value) {

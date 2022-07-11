@@ -10,6 +10,8 @@ public class PropertiesConfig {
 
     public static final String URL = getProperties().getProperty("url");
     public static final Long WAIT_TIME = Long.valueOf(getProperties().getProperty("wait.time"));
+    public static final String EXTENT_REPORT_PATH = getProperties().getProperty("extent.report.path");
+
     //TODO place in data file
     public static final String VALID_USER = getProperties().getProperty("valid.username");
     public static final String VALID_PASSWORD = getProperties().getProperty("valid.pwd");
