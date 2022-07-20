@@ -18,7 +18,7 @@ public class MenuSection extends Base{
         return driver.findElement(By.id("logout_sidebar_link"));
     }
 
-    private WebElement resetAppState() {return driver.findElement(By.id("reset_sidebar_link"));}
+    private WebElement resetAppStateLink() {return driver.findElement(By.id("reset_sidebar_link"));}
 
     public void waitForMenuVisibility(){
         waitForElementVisibility(burgerMenu());
@@ -36,10 +36,13 @@ public class MenuSection extends Base{
     }
 
     public void resetApp(){
+        WebElement resetAppStateLink = resetAppStateLink();
         waitForMenuVisibility();
         burgerMenu().click();
-        waitForElementVisibility(resetAppState());
-        resetAppState().click();
+        waitForElementVisibility(resetAppStateLink);
+        resetAppStateLink().click();
         driver.navigate().refresh();
+        waitForPageToReload(resetAppStateLink);
+        waitForMenuToBeClosed();
     }
 }

@@ -10,6 +10,10 @@ import java.util.NoSuchElementException;
 
 public class InventoryPage extends Base {
 
+    public InventoryPage(WebDriver driver) {
+        super(driver);
+    }
+
     private WebElement inventoryContainer() {
         return driver.findElement(By.id("inventory_container"));
     }
@@ -18,8 +22,8 @@ public class InventoryPage extends Base {
         return driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
     }
 
-    private WebElement removeBackpackButton(){
-        return driver.findElement(By.id("add-to-cart-sauce-labs-backpack"));
+    private WebElement removeBackpackButton() {
+        return driver.findElement(By.id("remove-sauce-labs-backpack"));
     }
 
     private WebElement bikeLight() {
@@ -38,24 +42,24 @@ public class InventoryPage extends Base {
         return driver.findElement(By.cssSelector("shopping_cart_link"));
     }
 
-    public InventoryPage(WebDriver driver) {
-        super(driver);
-    }
+    public WebElement getItem(String itemName) { return driver.findElement(By.xpath("//div[@class = 'inventory_item'][.//div[text() = '"+itemName+"']]")); }
 
     public void waitUntilPageIsLoaded() {
         waitForElementVisibility(inventoryContainer());
     }
 
-    public boolean isInventoryPageVisible(){
+    public boolean isInventoryPageVisible() {
         return inventoryContainer().isDisplayed();
     }
 
-    public void addBackpackToCart(){
-        addBackpackToCartButton().click();
+    public void addBackpackToCart() {
+        WebElement addBackpackToCartButton = addBackpackToCartButton();
+        addBackpackToCartButton.click();
+        waitForElementInvisibility(addBackpackToCartButton);
     }
 
-    public boolean isRemoveBackpackButtonVisible(){
-       return removeBackpackButton().isDisplayed();
+    public boolean isRemoveBackpackButtonVisible() {
+        return removeBackpackButton().isDisplayed();
     }
 
     public void sortByValue(String value) {
@@ -66,5 +70,17 @@ public class InventoryPage extends Base {
         } catch (NoSuchElementException noSuchElementException) {
             throw new WebDriverException(String.format("Error while trying to sort elements"), noSuchElementException);
         }
+    }
+
+    public String getItemDescription(WebElement item) {
+        return item.findElement(By.className("inventory_item_desc")).getText();
+    }
+
+    public String getItemPrice(WebElement item) {
+        return item.findElement(By.className("inventory_item_price")).getText();
+    }
+
+    public String getItemImage(WebElement item) {
+        return item.findElement(By.tagName("img")).getAttribute("alt");
     }
 }

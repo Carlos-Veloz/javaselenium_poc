@@ -22,4 +22,12 @@ public abstract class Base {
     public void waitForElementInvisibility(WebElement element) {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
+
+    public void waitForPageToReload(WebElement element) {
+        wait.until(ExpectedConditions.stalenessOf(element));
+    }
+
+    public String readText(WebElement element) {
+        return element.getText();
+    }
 }
