@@ -15,19 +15,20 @@ public abstract class Base {
         wait = new WebDriverWait(driver, PropertiesConfig.WAIT_TIME);
     }
 
-    public void waitForElementVisibility(WebElement element) {
+    protected void waitForElementVisibility(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
-    public void waitForElementInvisibility(WebElement element) {
+    protected void waitForElementInvisibility(WebElement element) {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
-    public void waitForPageToReload(WebElement element) {
+    protected void waitForPageToReload(WebElement element) {
         wait.until(ExpectedConditions.stalenessOf(element));
     }
 
-    public String readText(WebElement element) {
-        return element.getText();
+    protected void writeText (WebElement element, String text) {
+        waitForElementVisibility(element);
+        element.sendKeys(text);
     }
 }

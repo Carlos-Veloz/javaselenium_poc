@@ -17,6 +17,11 @@ public class YourCart extends Base{
 
     private WebElement shoppingCartContainer() { return driver.findElement(By.id("cart_contents_container"));}
 
+    private WebElement checkoutButton()  { return driver.findElement(By.id("checkout")); }
+
+    public WebElement getCartItem(String itemName) { return driver.findElement(By.xpath("//div[@class = 'cart_item'][.//div[text() = '"+itemName+"']]")); }
+
+
     public boolean isOneProductAddedToCart(){
         String numberOfItemsInShoppingCart = "1";
         return shoppingCartBadge().getText().equals(numberOfItemsInShoppingCart);
@@ -29,4 +34,14 @@ public class YourCart extends Base{
     public void waitUntilPageIsLoaded() {
         waitForElementVisibility(shoppingCartContainer());
     }
+
+    public String getItemDescription(WebElement item) {
+        return item.findElement(By.className("inventory_item_desc")).getText();
+    }
+
+    public String getItemPrice(WebElement item) {
+        return item.findElement(By.className("inventory_item_price")).getText();
+    }
+
+    public void clickCheckoutButton(){ checkoutButton().click();}
 }
