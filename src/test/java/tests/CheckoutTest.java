@@ -16,6 +16,7 @@ public class CheckoutTest extends BaseTest{
     private MenuSection menu;
     private YourCart yourCart;
     private CheckoutStepOnePage yourInformation;
+    private CheckoutStepTwoPage overview;
 
     @BeforeMethod
     public void testInit() {
@@ -26,6 +27,7 @@ public class CheckoutTest extends BaseTest{
         menu = new MenuSection(driver);
         yourCart = new YourCart(driver);
         yourInformation = new CheckoutStepOnePage(driver);
+        overview = new CheckoutStepTwoPage(driver);
         driver.get(PropertiesConfig.URL);
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
 
@@ -45,6 +47,12 @@ public class CheckoutTest extends BaseTest{
         yourCart.clickCheckoutButton();
         yourInformation.waitUntilPageIsLoaded();
         yourInformation.fillYourInformationForm("Juan", "Lopez", "244545");
+        yourInformation.clickContinueButton();
+        overview.waitUntilPageIsLoaded();
+        item = overview.getInventoryItem(itemName);
+        softAssert.assertEquals(overview.getItemDescription(item), itemDescription);
+        softAssert.assertEquals(overview.getItemPrice(item), itemPrice);
+        softAssert.assertAll();
 
     }
 }
