@@ -1,15 +1,17 @@
 package tests;
 
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
-import pages.*;
+import pages.InventoryPage;
+import pages.LoginPage;
+import pages.MenuSection;
+import pages.YourCart;
 import utils.PropertiesConfig;
 
-public class YourCartTest extends BaseTest{
+public class YourCartTest extends BaseTest {
     private SoftAssert softAssert;
     private Assertion asserts;
     private LoginPage login;
@@ -29,7 +31,7 @@ public class YourCartTest extends BaseTest{
     }
 
     @Test(groups = {"smoketest"})
-    public void validate_product_in_cart(){
+    public void validate_product_in_cart() {
         String itemName = "Sauce Labs Backpack";
         String itemDescription = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
         String itemPrice = "$29.99";

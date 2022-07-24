@@ -1,8 +1,8 @@
 package utils.data;
 
-import java.io.*;
-import java.util.InvalidPropertiesFormatException;
-import java.util.Objects;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class DataProviderReader {
     private static DataProviderReader INSTANCE;

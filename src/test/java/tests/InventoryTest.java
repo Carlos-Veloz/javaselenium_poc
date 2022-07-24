@@ -36,7 +36,7 @@ public class InventoryTest extends BaseTest {
     }
 
     @Test(groups = {"smoketest"})
-    public void validate_add_to_cart(){
+    public void validate_add_to_cart() {
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
         home.waitUntilPageIsLoaded();
         menu.resetApp();
@@ -47,7 +47,7 @@ public class InventoryTest extends BaseTest {
     }
 
     @Test(groups = {"smoketest"})
-    public void validate_item_details(){
+    public void validate_item_details() {
         //TODO Add to data provider
         String itemName = "Sauce Labs Backpack";
         String itemDescription = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";

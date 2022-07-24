@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class YourCart extends Base{
+public class YourCart extends Base {
     public YourCart(WebDriver driver) {
         super(driver);
     }
@@ -13,16 +13,24 @@ public class YourCart extends Base{
         return driver.findElement(By.className("shopping_cart_badge"));
     }
 
-    private WebElement shoppingCartLink() { return driver.findElement(By.id("shopping_cart_container")); }
+    private WebElement shoppingCartLink() {
+        return driver.findElement(By.id("shopping_cart_container"));
+    }
 
-    private WebElement shoppingCartContainer() { return driver.findElement(By.id("cart_contents_container"));}
+    private WebElement shoppingCartContainer() {
+        return driver.findElement(By.id("cart_contents_container"));
+    }
 
-    private WebElement checkoutButton()  { return driver.findElement(By.id("checkout")); }
+    private WebElement checkoutButton() {
+        return driver.findElement(By.id("checkout"));
+    }
 
-    public WebElement getCartItem(String itemName) { return driver.findElement(By.xpath("//div[@class = 'cart_item'][.//div[text() = '"+itemName+"']]")); }
+    public WebElement getCartItem(String itemName) {
+        return driver.findElement(By.xpath("//div[@class = 'cart_item'][.//div[text() = '" + itemName + "']]"));
+    }
 
 
-    public boolean isOneProductAddedToCart(){
+    public boolean isOneProductAddedToCart() {
         String numberOfItemsInShoppingCart = "1";
         return shoppingCartBadge().getText().equals(numberOfItemsInShoppingCart);
     }
@@ -43,5 +51,7 @@ public class YourCart extends Base{
         return item.findElement(By.className("inventory_item_price")).getText();
     }
 
-    public void clickCheckoutButton(){ checkoutButton().click();}
+    public void clickCheckoutButton() {
+        checkoutButton().click();
+    }
 }

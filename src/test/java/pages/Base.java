@@ -27,7 +27,7 @@ public abstract class Base {
         wait.until(ExpectedConditions.stalenessOf(element));
     }
 
-    protected void writeText (WebElement element, String text) {
+    protected void writeText(WebElement element, String text) {
         waitForElementVisibility(element);
         element.sendKeys(text);
     }

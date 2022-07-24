@@ -42,7 +42,9 @@ public class InventoryPage extends Base {
         return driver.findElement(By.cssSelector("shopping_cart_link"));
     }
 
-    public WebElement getItem(String itemName) { return driver.findElement(By.xpath("//div[@class = 'inventory_item'][.//div[text() = '"+itemName+"']]")); }
+    public WebElement getItem(String itemName) {
+        return driver.findElement(By.xpath("//div[@class = 'inventory_item'][.//div[text() = '" + itemName + "']]"));
+    }
 
     public void waitUntilPageIsLoaded() {
         waitForElementVisibility(inventoryContainer());

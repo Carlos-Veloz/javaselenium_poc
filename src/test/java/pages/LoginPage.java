@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Objects;
 
-    public class LoginPage extends Base {
+public class LoginPage extends Base {
     public LoginPage(WebDriver driver) {
         super(driver);
     }

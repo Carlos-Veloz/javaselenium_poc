@@ -8,7 +8,7 @@ import org.testng.asserts.SoftAssert;
 import pages.*;
 import utils.PropertiesConfig;
 
-public class CheckoutTest extends BaseTest{
+public class CheckoutTest extends BaseTest {
     private SoftAssert softAssert;
     private Assertion asserts;
     private LoginPage login;

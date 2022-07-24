@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class MenuSection extends Base{
+public class MenuSection extends Base {
 
     public MenuSection(WebDriver driver) {
         super(driver);
@@ -18,13 +18,15 @@ public class MenuSection extends Base{
         return driver.findElement(By.id("logout_sidebar_link"));
     }
 
-    private WebElement resetAppStateLink() {return driver.findElement(By.id("reset_sidebar_link"));}
+    private WebElement resetAppStateLink() {
+        return driver.findElement(By.id("reset_sidebar_link"));
+    }
 
-    public void waitForMenuVisibility(){
+    public void waitForMenuVisibility() {
         waitForElementVisibility(burgerMenu());
     }
 
-    public void waitForMenuToBeClosed(){
+    public void waitForMenuToBeClosed() {
         waitForElementInvisibility(logout());
     }
 
@@ -35,7 +37,7 @@ public class MenuSection extends Base{
         logout().click();
     }
 
-    public void resetApp(){
+    public void resetApp() {
         WebElement resetAppStateLink = resetAppStateLink();
         waitForMenuVisibility();
         burgerMenu().click();
