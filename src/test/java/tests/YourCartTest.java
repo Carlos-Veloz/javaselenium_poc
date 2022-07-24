@@ -11,6 +11,11 @@ import pages.MenuSection;
 import pages.YourCart;
 import utils.PropertiesConfig;
 
+/**
+ * This class contains the test cases related to the Cart feature.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class YourCartTest extends BaseTest {
     private SoftAssert softAssert;
     private Assertion asserts;

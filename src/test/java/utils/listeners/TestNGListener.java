@@ -10,8 +10,9 @@ import utils.reports.Reporter;
 /**
  * Overrides the TestNG listener methods to log results in the ExtentReport.
  * This setup does not support parallel execution
+ *
+ * @lastmodifier Cecilia Ocampo
  */
-
 public class TestNGListener extends BaseTest implements ITestListener {
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();

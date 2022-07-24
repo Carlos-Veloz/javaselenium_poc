@@ -6,6 +6,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.PropertiesConfig;
 
+/**
+ * Parent class of the Pages classes.
+ * It declares the driver Instance variable and defines some methods reused across the Page Classes
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public abstract class Base {
     protected final WebDriver driver;
     protected WebDriverWait wait;

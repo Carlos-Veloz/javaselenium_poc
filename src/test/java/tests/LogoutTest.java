@@ -7,6 +7,11 @@ import pages.LoginPage;
 import pages.MenuSection;
 import utils.PropertiesConfig;
 
+/**
+ * This class contains the test cases related to Logout.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class LogoutTest extends BaseTest {
     private LoginPage login;
     private MenuSection menu;

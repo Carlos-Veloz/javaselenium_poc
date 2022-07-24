@@ -7,6 +7,11 @@ import pages.InventoryPage;
 import pages.LoginPage;
 import utils.PropertiesConfig;
 
+/**
+ * This class contains the test cases related to Login.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class LoginTest extends BaseTest {
     private LoginPage login;
     private InventoryPage home;

@@ -4,6 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * YourCart Class models the YourCart page from SauceDemo website.
+ * It defines the Page Variables, WebElements and Page Methods.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class YourCart extends Base {
     public YourCart(WebDriver driver) {
         super(driver);

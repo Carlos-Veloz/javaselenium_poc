@@ -6,6 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import java.util.Objects;
 
+/**
+ * LoginPage Class models the Login page from SauceDemo website.
+ * It defines the Page Variables, WebElements and Page Methods.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class LoginPage extends Base {
     public LoginPage(WebDriver driver) {
         super(driver);

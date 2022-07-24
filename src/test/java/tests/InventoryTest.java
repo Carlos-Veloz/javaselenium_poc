@@ -10,6 +10,11 @@ import pages.MenuSection;
 import pages.YourCart;
 import utils.PropertiesConfig;
 
+/**
+ * This class contains the test that validate the Inventory page.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class InventoryTest extends BaseTest {
     private SoftAssert softAssert;
     private LoginPage login;

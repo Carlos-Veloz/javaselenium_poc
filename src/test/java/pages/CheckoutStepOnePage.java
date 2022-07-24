@@ -4,6 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * CheckoutStepOnePage Class models the "Checkout: Your Information" Page.
+ * It defines the Page Variables, WebElements and Page Methods.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class CheckoutStepOnePage extends Base {
 
     public CheckoutStepOnePage(WebDriver driver) {

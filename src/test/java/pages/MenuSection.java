@@ -4,6 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * InventoryPage Class models the Menu section from SauceDemo website.
+ * It defines the Variables, WebElements and Section Methods.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class MenuSection extends Base {
 
     public MenuSection(WebDriver driver) {

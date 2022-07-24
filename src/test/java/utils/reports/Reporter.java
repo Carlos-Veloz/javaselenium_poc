@@ -10,6 +10,8 @@ import utils.PropertiesConfig;
 /**
  * Setup the reporter ExtentSparkReport
  * This setup does not support parallel execution
+ *
+ * @lastmodifier Cecilia Ocampo
  */
 
 public class Reporter {

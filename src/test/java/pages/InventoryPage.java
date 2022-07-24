@@ -8,6 +8,12 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.util.NoSuchElementException;
 
+/**
+ * InventoryPage Class models the Inventory page from SauceDemo website.
+ * It defines the Page Variables, WebElements and Page Methods.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class InventoryPage extends Base {
 
     public InventoryPage(WebDriver driver) {

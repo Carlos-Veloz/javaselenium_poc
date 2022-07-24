@@ -4,6 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+/**
+ * CheckoutStepTwoPage Class models the "Checkout: Overview" Page.
+ * It defines the Page Variables, WebElements and Page Methods.
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class CheckoutStepTwoPage extends Base {
     public CheckoutStepTwoPage(WebDriver driver) {
         super(driver);
