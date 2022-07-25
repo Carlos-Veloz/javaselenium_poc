@@ -24,7 +24,7 @@ public class LogoutTest extends BaseTest {
     }
 
     @Test(groups = {"smoketest"})
-    public void logOut() {
+    public void validate_logout() {
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
         menu.logOut();
         Assert.assertTrue(login.formIsDisplayed());

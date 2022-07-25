@@ -15,7 +15,6 @@ public class PropertiesConfig {
     //TODO place in data file
     public static final String VALID_USER = getProperties().getProperty("valid.username");
     public static final String VALID_PASSWORD = getProperties().getProperty("valid.pwd");
-    public static final String SORT = getProperties().getProperty("sort.LoToHi");
 
     public static Properties getProperties() {
         if (properties == null) {

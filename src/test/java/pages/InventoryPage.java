@@ -2,11 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
-import java.util.NoSuchElementException;
 
 /**
  * InventoryPage Class models the Inventory page from SauceDemo website.
@@ -68,16 +64,6 @@ public class InventoryPage extends Base {
 
     public boolean isRemoveBackpackButtonVisible() {
         return removeBackpackButton().isDisplayed();
-    }
-
-    public void sortByValue(String value) {
-        filterDropDown().click();
-        Select sortDropdown = new Select(filterDropDown());
-        try {
-            sortDropdown.selectByValue(value);
-        } catch (NoSuchElementException noSuchElementException) {
-            throw new WebDriverException(String.format("Error while trying to sort elements"), noSuchElementException);
-        }
     }
 
     public String getItemDescription(WebElement item) {

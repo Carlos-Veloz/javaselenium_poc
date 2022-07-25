@@ -10,6 +10,7 @@ import utils.PropertiesConfig;
 
 /**
  * This class contains the test cases related to Checkout process.
+ *
  * @lastmodifier Cecilia Ocampo
  */
 public class CheckoutTest extends BaseTest {

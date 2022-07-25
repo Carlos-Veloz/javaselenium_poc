@@ -25,13 +25,13 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(groups = {"smoketest"})
-    public void ValidLogin() {
+    public void validate_login() {
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
         Assert.assertTrue(home.isInventoryPageVisible());
     }
 
     @Test
-    public void IncorrectLogin() {
+    public void validate_incorrect_login() {
         login.login("", "");
         errorMsg = login.getErrorMsgText();
         Assert.assertEquals(errorMsg, "Epic sadface: Username is required");

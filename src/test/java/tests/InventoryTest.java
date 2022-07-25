@@ -32,14 +32,6 @@ public class InventoryTest extends BaseTest {
         driver.get(PropertiesConfig.URL);
     }
 
-    @Test
-    public void sortProducts() {
-        login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
-        home.waitUntilPageIsLoaded();
-        home.sortByValue(PropertiesConfig.SORT);
-        //TODO Assert
-    }
-
     @Test(groups = {"smoketest"})
     public void validate_add_to_cart() {
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
