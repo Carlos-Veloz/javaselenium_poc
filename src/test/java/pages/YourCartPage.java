@@ -10,8 +10,8 @@ import org.openqa.selenium.WebElement;
  *
  * @lastmodifier Cecilia Ocampo
  */
-public class YourCart extends Base {
-    public YourCart(WebDriver driver) {
+public class YourCartPage extends Base {
+    public YourCartPage(WebDriver driver) {
         super(driver);
     }
 

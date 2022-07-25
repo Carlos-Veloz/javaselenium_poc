@@ -19,12 +19,12 @@ public class CheckoutStepTwoPage extends Base {
         return driver.findElement(By.xpath("//span[text() = 'Checkout: Overview']"));
     }
 
-    public WebElement getInventoryItem(String itemInventoryName) {
-        return driver.findElement(By.xpath("//div[@class = 'cart_item'][.//div[text() = '" + itemInventoryName + "']]"));
+    private WebElement finishButton() {
+        return driver.findElement(By.id("finish"));
     }
 
-    public WebElement finishButton() {
-        return driver.findElement(By.id("finish"));
+    public WebElement getInventoryItem(String itemInventoryName) {
+        return driver.findElement(By.xpath("//div[@class = 'cart_item'][.//div[text() = '" + itemInventoryName + "']]"));
     }
 
     public void waitUntilPageIsLoaded() {

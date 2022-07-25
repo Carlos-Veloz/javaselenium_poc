@@ -7,7 +7,7 @@ import org.testng.asserts.SoftAssert;
 import pages.InventoryPage;
 import pages.LoginPage;
 import pages.MenuSection;
-import pages.YourCart;
+import pages.YourCartPage;
 import utils.PropertiesConfig;
 
 /**
@@ -20,7 +20,7 @@ public class InventoryTest extends BaseTest {
     private LoginPage login;
     private InventoryPage home;
     private MenuSection menu;
-    private YourCart yourCart;
+    private YourCartPage yourCart;
 
     @BeforeMethod
     public void testInit() {
@@ -28,7 +28,7 @@ public class InventoryTest extends BaseTest {
         login = new LoginPage(driver);
         home = new InventoryPage(driver);
         menu = new MenuSection(driver);
-        yourCart = new YourCart(driver);
+        yourCart = new YourCartPage(driver);
         driver.get(PropertiesConfig.URL);
     }
 

@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.Assertion;
@@ -19,9 +20,10 @@ public class CheckoutTest extends BaseTest {
     private LoginPage login;
     private InventoryPage home;
     private MenuSection menu;
-    private YourCart yourCart;
+    private YourCartPage yourCart;
     private CheckoutStepOnePage yourInformation;
     private CheckoutStepTwoPage overview;
+    private CheckoutCompletePage completePage;
 
     @BeforeMethod
     public void testInit() {
@@ -30,9 +32,10 @@ public class CheckoutTest extends BaseTest {
         login = new LoginPage(driver);
         home = new InventoryPage(driver);
         menu = new MenuSection(driver);
-        yourCart = new YourCart(driver);
+        yourCart = new YourCartPage(driver);
         yourInformation = new CheckoutStepOnePage(driver);
         overview = new CheckoutStepTwoPage(driver);
+        completePage = new CheckoutCompletePage(driver);
         driver.get(PropertiesConfig.URL);
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
 
@@ -51,13 +54,30 @@ public class CheckoutTest extends BaseTest {
         yourCart.waitUntilPageIsLoaded();
         yourCart.clickCheckoutButton();
         yourInformation.waitUntilPageIsLoaded();
-        yourInformation.fillYourInformationForm("Juan", "Lopez", "244545");
+        yourInformation.fillYourInformationForm("Juan", "Lopez", "244545"); //TODO Create Data
         yourInformation.clickContinueButton();
         overview.waitUntilPageIsLoaded();
         item = overview.getInventoryItem(itemName);
         softAssert.assertEquals(overview.getItemDescription(item), itemDescription);
         softAssert.assertEquals(overview.getItemPrice(item), itemPrice);
         softAssert.assertAll();
-
     }
+
+    @Test(groups = {"smoketest"})
+    public void validate_successful_checkout() {
+        home.waitUntilPageIsLoaded();
+        menu.resetApp();
+        home.addBackpackToCart();
+        yourCart.clickShoppingCartLink();
+        yourCart.waitUntilPageIsLoaded();
+        yourCart.clickCheckoutButton();
+        yourInformation.waitUntilPageIsLoaded();
+        yourInformation.fillYourInformationForm("Juan", "Lopez", "244545");
+        yourInformation.clickContinueButton();
+        overview.waitUntilPageIsLoaded();
+        overview.clickFinish();
+        completePage.waitUntilPageIsLoaded();
+        Assert.assertEquals(completePage.getHeaderText(), "THANK YOU FOR YOUR ORDER");
+    }
+
 }

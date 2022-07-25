@@ -13,7 +13,6 @@ import utils.PropertiesConfig;
  *
  * @lastmodifier Cecilia Ocampo
  */
-
 public class Reporter {
     public static String reportPath = PropertiesConfig.EXTENT_REPORT_PATH; //TODO don't overwrite report
     public static ExtentSparkReporter htmlReport = new ExtentSparkReporter(reportPath);

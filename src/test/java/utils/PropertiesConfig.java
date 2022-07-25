@@ -5,6 +5,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Setup the Properties File
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class PropertiesConfig {
     public static Properties properties;
 
