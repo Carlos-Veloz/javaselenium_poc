@@ -49,7 +49,6 @@ public class InventoryTest extends BaseTest {
         String itemName = "Sauce Labs Backpack";
         String itemDescription = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
         String itemPrice = "$29.99";
-        String itemImage = "Sauce Labs Backpack";
         WebElement item;
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
         home.waitUntilPageIsLoaded();
@@ -57,7 +56,7 @@ public class InventoryTest extends BaseTest {
         item = home.getItem(itemName);
         softAssert.assertEquals(home.getItemDescription(item), itemDescription);
         softAssert.assertEquals(home.getItemPrice(item), itemPrice);
-        softAssert.assertEquals(home.getItemImage(item), itemImage);
+        softAssert.assertEquals(home.getItemImage(item), itemName);
         softAssert.assertAll();
     }
 }

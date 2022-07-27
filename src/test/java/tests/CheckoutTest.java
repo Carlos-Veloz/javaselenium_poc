@@ -8,6 +8,7 @@ import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
 import pages.*;
 import utils.PropertiesConfig;
+import utils.data.ShippingInformation;
 
 /**
  * This class contains the test cases related to Checkout process.
@@ -24,6 +25,7 @@ public class CheckoutTest extends BaseTest {
     private CheckoutStepOnePage yourInformation;
     private CheckoutStepTwoPage overview;
     private CheckoutCompletePage completePage;
+    private ShippingInformation form;
 
     @BeforeMethod
     public void testInit() {
@@ -36,9 +38,9 @@ public class CheckoutTest extends BaseTest {
         yourInformation = new CheckoutStepOnePage(driver);
         overview = new CheckoutStepTwoPage(driver);
         completePage = new CheckoutCompletePage(driver);
+        form = ShippingInformation.createShippingDetails();
         driver.get(PropertiesConfig.URL);
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
-
     }
 
     @Test(groups = {"smoketest"})
@@ -54,7 +56,7 @@ public class CheckoutTest extends BaseTest {
         yourCart.waitUntilPageIsLoaded();
         yourCart.clickCheckoutButton();
         yourInformation.waitUntilPageIsLoaded();
-        yourInformation.fillYourInformationForm("Juan", "Lopez", "244545"); //TODO Create Data
+        yourInformation.fillYourInformationForm(form.getFirstname(), form.getLastname(), form.getZipcode());
         yourInformation.clickContinueButton();
         overview.waitUntilPageIsLoaded();
         item = overview.getInventoryItem(itemName);
@@ -72,7 +74,7 @@ public class CheckoutTest extends BaseTest {
         yourCart.waitUntilPageIsLoaded();
         yourCart.clickCheckoutButton();
         yourInformation.waitUntilPageIsLoaded();
-        yourInformation.fillYourInformationForm("Juan", "Lopez", "244545");
+        yourInformation.fillYourInformationForm(form.getFirstname(), form.getLastname(), form.getZipcode());
         yourInformation.clickContinueButton();
         overview.waitUntilPageIsLoaded();
         overview.clickFinish();
