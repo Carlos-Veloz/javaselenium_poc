@@ -9,6 +9,7 @@ import pages.LoginPage;
 import pages.MenuSection;
 import pages.YourCartPage;
 import utils.PropertiesConfig;
+import utils.data.DataProviderReader;
 
 /**
  * This class contains the test that validate the Inventory page.
@@ -43,12 +44,9 @@ public class InventoryTest extends BaseTest {
         softAssert.assertAll();
     }
 
-    @Test(groups = {"smoketest"})
-    public void validate_item_details() {
+    @Test(groups = {"smoketest"}, dataProvider = "product-provider", dataProviderClass = DataProviderReader.class)
+    public void validate_item_details(String itemName, String itemDescription, String itemPrice) {
         //TODO Add to data provider
-        String itemName = "Sauce Labs Backpack";
-        String itemDescription = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
-        String itemPrice = "$29.99";
         WebElement item;
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
         home.waitUntilPageIsLoaded();

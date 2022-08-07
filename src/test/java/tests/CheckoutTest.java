@@ -8,6 +8,7 @@ import org.testng.asserts.Assertion;
 import org.testng.asserts.SoftAssert;
 import pages.*;
 import utils.PropertiesConfig;
+import utils.data.DataProviderReader;
 import utils.data.ShippingInformation;
 
 /**
@@ -43,11 +44,8 @@ public class CheckoutTest extends BaseTest {
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
     }
 
-    @Test(groups = {"smoketest"})
-    public void validate_item_at_checkout() {
-        String itemName = "Sauce Labs Backpack";
-        String itemDescription = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
-        String itemPrice = "$29.99";
+    @Test(groups = {"smoketest"}, dataProvider = "product-provider", dataProviderClass = DataProviderReader.class)
+    public void validate_item_at_checkout(String itemName, String itemDescription, String itemPrice) {
         WebElement item;
         home.waitUntilPageIsLoaded();
         menu.resetApp();

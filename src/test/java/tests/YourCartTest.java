@@ -10,6 +10,7 @@ import pages.LoginPage;
 import pages.MenuSection;
 import pages.YourCartPage;
 import utils.PropertiesConfig;
+import utils.data.DataProviderReader;
 
 /**
  * This class contains the test cases related to the Cart feature.
@@ -35,11 +36,8 @@ public class YourCartTest extends BaseTest {
 
     }
 
-    @Test(groups = {"smoketest"})
-    public void validate_product_in_cart() {
-        String itemName = "Sauce Labs Backpack";
-        String itemDescription = "carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.";
-        String itemPrice = "$29.99";
+    @Test(groups = {"smoketest"}, dataProvider = "product-provider", dataProviderClass = DataProviderReader.class)
+    public void validate_product_in_cart(String itemName, String itemDescription, String itemPrice) {
         WebElement item;
         driver.get(PropertiesConfig.URL);
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);

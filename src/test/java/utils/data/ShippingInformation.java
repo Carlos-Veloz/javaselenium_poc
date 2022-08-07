@@ -2,6 +2,11 @@ package utils.data;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+/**
+ * Create Random data used in "Checkout:Your Information" page
+ *
+ * @lastmodifier Cecilia Ocampo
+ */
 public class ShippingInformation {
 
     private String firstname;
