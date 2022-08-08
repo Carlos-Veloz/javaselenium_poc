@@ -1,6 +1,9 @@
 package utils.data;
 
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import utils.PropertiesConfig;
 
@@ -30,12 +33,16 @@ public class ExcelReader {
             e.printStackTrace();
         }
 
+        if (rowIterator.hasNext()) {
+            rowIterator.next(); //Remove the headers in the first row.
+        }
+
         return rowIterator;
     }
 
-    public String getCellValueAsString(Cell cell){
+    public String getCellValueAsString(Cell cell) {
         String cellContent = "";
-        switch (cell.getCellType()){
+        switch (cell.getCellType()) {
             case NUMERIC:
                 cellContent = String.valueOf(cell.getNumericCellValue());
                 break;
