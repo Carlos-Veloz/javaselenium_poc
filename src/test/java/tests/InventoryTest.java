@@ -46,7 +46,6 @@ public class InventoryTest extends BaseTest {
 
     @Test(groups = {"smoketest"}, dataProvider = "product-provider", dataProviderClass = DataProviderReader.class)
     public void validate_item_details(String itemName, String itemDescription, String itemPrice) {
-        //TODO Add to data provider
         WebElement item;
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
         home.waitUntilPageIsLoaded();
