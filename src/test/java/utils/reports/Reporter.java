@@ -22,18 +22,16 @@ public class Reporter {
     private static LocalDateTime date = LocalDateTime.now();
     private static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-ddHHmmss");
     public static ExtentSparkReporter htmlReport;
-    public static ExtentReports extent;
+    public static ExtentReports extent = new ExtentReports();
     public static ExtentTest test;
 
     public static void setupExtentReport() {
         htmlReport = new ExtentSparkReporter(reportPath + date.format(formatter) + "-ExtentReport.html");
-        extent = new ExtentReports();
-        extent.attachReporter(htmlReport);
-
-
         htmlReport.config().setDocumentTitle("Execution Report");
         htmlReport.config().setTheme(Theme.DARK);
         htmlReport.config().setReportName("Sauce Demo");
+
+        extent.attachReporter(htmlReport);
     }
 
 }

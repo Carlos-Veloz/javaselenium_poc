@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.logs.Log;
 
 public class CheckoutCompletePage extends Base {
     public CheckoutCompletePage(WebDriver driver) {
@@ -18,10 +19,12 @@ public class CheckoutCompletePage extends Base {
     }
 
     public void waitUntilPageIsLoaded() {
+        Log.info("Wait for Checkout Complete page to be loaded");
         waitForElementVisibility(pageTitle());
     }
 
     public String getHeaderText() {
+        Log.info("Get Checkout Complete header text");
         return pageHeader().getText();
     }
 

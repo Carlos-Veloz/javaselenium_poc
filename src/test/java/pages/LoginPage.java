@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.logs.Log;
 
 import java.util.Objects;
 
@@ -33,9 +34,10 @@ public class LoginPage extends Base {
         return driver.findElement(By.cssSelector(".error-message-container"));
     }
 
-    public void login(String username, String pwd) {
+    public void login(String username, String password) {
+        Log.info("Enter user name:'"+ username + "' and password: '"+ password +"'");
         userNameInput().sendKeys(username);
-        passwordInput().sendKeys((pwd));
+        passwordInput().sendKeys((password));
         loginButton().click();
     }
 
@@ -49,11 +51,6 @@ public class LoginPage extends Base {
     }
 
     public boolean formIsDisplayed() {
-        try {
-            waitForElementVisibility(userNameInput());
-            return true;
-        } catch (Exception ex) {
-            throw new RuntimeException("Timeout exceeded while waiting for login page to load");
-        }
+        return userNameInput().isDisplayed();
     }
 }

@@ -10,6 +10,8 @@ import pages.*;
 import utils.PropertiesConfig;
 import utils.data.DataProviderReader;
 import utils.data.ShippingInformation;
+import utils.logs.Log;
+import utils.reports.Reporter;
 
 /**
  * This class contains the test cases related to Checkout process.
@@ -18,8 +20,6 @@ import utils.data.ShippingInformation;
  */
 public class CheckoutTest extends BaseTest {
     private SoftAssert softAssert;
-    private Assertion asserts;
-    private LoginPage login;
     private InventoryPage home;
     private MenuSection menu;
     private YourCartPage yourCart;
@@ -30,9 +30,8 @@ public class CheckoutTest extends BaseTest {
 
     @BeforeMethod
     public void testInit() {
+        LoginPage login = new LoginPage(driver);
         softAssert = new SoftAssert();
-        asserts = new Assertion();
-        login = new LoginPage(driver);
         home = new InventoryPage(driver);
         menu = new MenuSection(driver);
         yourCart = new YourCartPage(driver);

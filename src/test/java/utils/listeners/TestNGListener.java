@@ -20,7 +20,7 @@ import java.util.Objects;
  */
 public class TestNGListener extends BaseTest implements ITestListener {
     private static String getTestMethodName(ITestResult iTestResult) {
-        return iTestResult.getMethod().getConstructorOrMethod().getName();
+        return iTestResult.getMethod().getMethodName();
     }
 
     @Override
@@ -44,7 +44,7 @@ public class TestNGListener extends BaseTest implements ITestListener {
 
         //ExtentReports log and screenshot operations for failed tests.
         Reporter.test.log(Status.FAIL, "Test Failed",
-                Reporter.test.addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
+                    Reporter.test.addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
     }
 
     @Override

@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.logs.Log;
 
 /**
  * CheckoutStepOnePage Class models the "Checkout: Your Information" Page.
@@ -37,10 +38,12 @@ public class CheckoutStepOnePage extends Base {
     }
 
     public void waitUntilPageIsLoaded() {
+        Log.info("Wait for Checkout Step One page to be displayed");
         waitForElementVisibility(title());
     }
 
     public void fillYourInformationForm(String firstname, String lastname, String postalCode) {
+        Log.info("Filling the Form");
         writeText(firstnameField(), firstname);
         writeText(lastnameField(), lastname);
         writeText(postalCodeField(), postalCode);

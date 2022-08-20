@@ -15,17 +15,16 @@ import utils.PropertiesConfig;
  */
 public class LoginTest extends BaseTest {
     private LoginPage login;
-    private InventoryPage home;
 
     @BeforeMethod
     public void testInit() {
         login = new LoginPage(driver);
-        home = new InventoryPage(driver);
         driver.get(PropertiesConfig.URL);
     }
 
     @Test(groups = {"smoketest"})
     public void validate_login() {
+        InventoryPage home = new InventoryPage(driver);
         login.login(PropertiesConfig.VALID_USER, PropertiesConfig.VALID_PASSWORD);
         Assert.assertTrue(home.isInventoryPageVisible());
     }
